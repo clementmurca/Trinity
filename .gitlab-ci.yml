@@ -1,0 +1,85 @@
+image: docker:latest
+
+stages:
+  - network
+  - build
+  - test
+  - deploy
+
+setup_network:
+  stage: network
+  script:
+    - docker network create mobile-network || true
+  only:
+    - Feature/HomePage
+
+build_backend:
+  stage: build
+  script:
+    - pwd
+    - ls -la
+    - docker-compose build --no-cache backend-dev backend-prod
+  only:
+    - Feature/HomePage
+
+build_frontend:
+  stage: build
+  script:
+    - docker-compose build --no-cache frontend-dev frontend-prod
+  only:
+    - Feature/HomePage
+
+build_mobile:
+  stage: build
+  script:
+    - docker-compose build --no-cache mobile
+  only:
+    - Feature/HomePage
+
+test_backend:
+  stage: test
+  script:
+    - docker-compose up -d backend-test
+    - docker exec container_back_test npm run test
+    - sleep 3
+    - docker-compose down
+  only:
+    - Feature/HomePage
+
+test_frontend:
+  stage: test
+  script:
+    - docker-compose up -d frontend-test
+    - docker exec container_front_test npm run test
+    - sleep 3
+    - docker-compose down
+  only:
+    - Feature/HomePage
+
+deploy_dev:
+  stage: deploy
+  variables:
+  script:
+    - docker-compose up -d backend-dev frontend-dev
+  environment:
+    name: development
+  only:
+    - Feature/HomePage
+
+deploy_prod:
+  stage: deploy
+  script:
+    - docker-compose up -d backend-prod frontend-prod
+  environment:
+    name: production
+  only:
+    - Feature/HomePage
+
+deploy_mobile:
+  stage: deploy
+  script:
+    - docker-compose up -d mobile
+  environment:
+    name: development
+  only:
+    - Feature/HomePage

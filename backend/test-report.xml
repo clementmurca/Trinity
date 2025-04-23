@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/clementmurca/Documents/Cours-Epitech/Project_01/T-DEV-703-Mobile/backend/src/__tests__/sellerController.test.js">
+    <testCase name="sellerController - createSeller doit créer un vendeur si l’utilisateur est trouvé" duration="4"/>
+    <testCase name="sellerController - createSeller doit renvoyer une erreur si l’utilisateur n’est pas trouvé" duration="7"/>
+    <testCase name="addProductToStock doit lancer une erreur si sellerId ou productId sont manquants" duration="6"/>
+    <testCase name="addProductToStock doit lancer une erreur si le stock ou le prix ne sont pas des nombres valides" duration="1"/>
+    <testCase name="addProductToStock doit lancer une erreur si le vendeur n’est pas trouvé" duration="1"/>
+    <testCase name="addProductToStock doit lancer une erreur si le produit n’est pas trouvé" duration="1"/>
+    <testCase name="addProductToStock doit ajouter un nouveau vendeur dans le tableau sellers si non présent" duration="1"/>
+    <testCase name="addProductToStock doit mettre à jour les informations du vendeur si déjà présent dans le tableau sellers" duration="1"/>
+    <testCase name="getProductSellers doit lancer une erreur si le produit n’est pas trouvé" duration="0"/>
+    <testCase name="getProductSellers doit renvoyer la liste des vendeurs avec les informations de stock associées" duration="1"/>
+    <testCase name="removeProductFromShop doit lancer une erreur si le vendeur n’est pas trouvé ou n’a pas le statut &quot;seller&quot;" duration="2"/>
+    <testCase name="removeProductFromShop doit lancer une erreur si le produit n’est pas trouvé" duration="0"/>
+    <testCase name="removeProductFromShop doit lancer une erreur si le produit n’appartient pas à la boutique du vendeur" duration="1"/>
+    <testCase name="removeProductFromShop doit retirer le vendeur du produit et renvoyer un message de succès" duration="0"/>
+  </file>
+  <file path="/Users/clementmurca/Documents/Cours-Epitech/Project_01/T-DEV-703-Mobile/backend/src/__tests__/productController.test.js">
+    <testCase name="productController - getProducts doit renvoyer une liste vide si aucun produit n’est trouvé" duration="2"/>
+    <testCase name="productController - getProducts doit renvoyer la liste des produits" duration="0"/>
+    <testCase name="productController - getProductByCode doit renvoyer un produit si celui-ci est trouvé" duration="0"/>
+    <testCase name="productController - getProductByCode doit lancer une erreur avec un status 404 si le produit n’est pas trouvé" duration="7"/>
+    <testCase name="productController - getProductByCategory doit renvoyer la liste des produits correspondant aux catégories" duration="2"/>
+  </file>
+  <file path="/Users/clementmurca/Documents/Cours-Epitech/Project_01/T-DEV-703-Mobile/backend/src/__tests__/productController.import.test.js">
+    <testCase name="importMultipleProducts doit importer les produits retournés par OpenFoodFacts" duration="6"/>
+  </file>
+  <file path="/Users/clementmurca/Documents/Cours-Epitech/Project_01/T-DEV-703-Mobile/backend/src/__tests__/orderController.test.js">
+    <testCase name="orderController - createOrder doit renvoyer une erreur si le panier est vide" duration="5"/>
+  </file>
+  <file path="/Users/clementmurca/Documents/Cours-Epitech/Project_01/T-DEV-703-Mobile/backend/src/__tests__/invoiceController.test.js">
+    <testCase name="invoiceController - createInvoice doit renvoyer une erreur si la commande n’est pas trouvée" duration="3"/>
+  </file>
+  <file path="/Users/clementmurca/Documents/Cours-Epitech/Project_01/T-DEV-703-Mobile/backend/src/__tests__/cartController.test.js">
+    <testCase name="cartController - getCart doit renvoyer une erreur si l’utilisateur n’est pas trouvé" duration="2"/>
+  </file>
+</testExecutions>
